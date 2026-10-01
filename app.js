@@ -6,10 +6,16 @@ const STORAGE_KEY = "tasks";
 
 function renderTasks() {
   taskList.innerHTML = "";
+  if (tasks.length === 0) {
+    emptyMessage.style.display = "block";
+  } else {
+    emptyMessage.style.display = "none";
+  }
   tasks.forEach((task, index) => {
     const li = document.createElement("li");
     const span = document.createElement("span");
     const deleteButton = document.createElement("button");
+    const emptyMessage = document.getElementById("emptyMessage");
 
     span.textContent = task;
     deleteButton.textContent = "Х";

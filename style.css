@@ -39,7 +39,7 @@ body {
     outline: none;
     transition: border-color 0.2s;
 }
-.input-row:focus {
+.input-row input:focus {
     border-color: #6366f1;
 }
 .input-row button {
@@ -50,7 +50,7 @@ body {
     border-radius: 8px;
     font-size: 15px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
 
 }
 .input-row button:hover {
@@ -69,7 +69,7 @@ body {
     padding: 10px 12px;
     background: #f9f9fb;
     border-radius: 8px;
-    fonf-size: 15px;
+    font-size: 15px;
 }
 #taskList li button {
     background: transparent;
@@ -80,8 +80,15 @@ body {
     cursor: pointer;
     padding: 4px 8px;
     border-radius: 4px;
-    transition: backgraund 0.2s;
+    transition: background 0.2s;
 }
 #taskList li button:hover {
     background: #fee2e2;
+}
+
+.empty-message {
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+    padding: 20px 0;
 }
