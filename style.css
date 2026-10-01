@@ -24,3 +24,64 @@ body {
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
 }
+
+.input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.input-row input {
+    flex: 1;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.input-row:focus {
+    border-color: #6366f1;
+}
+.input-row button {
+    padding: 10px 16px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+}
+.input-row button:hover {
+    background: #4f46e5;
+}
+#taskList {
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    gap:8px;
+}
+#taskList li {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: #f9f9fb;
+    border-radius: 8px;
+    fonf-size: 15px;
+}
+#taskList li button {
+    background: transparent;
+    color: #ef4444;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: backgraund 0.2s;
+}
+#taskList li button:hover {
+    background: #fee2e2;
+}
