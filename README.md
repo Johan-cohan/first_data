@@ -1,13 +1,26 @@
 # Todo App
 
-Простой список задач на чистом JavaScript.
+Простой и удобный список задач на чистом JavaScript.
 
-## Функционал
-- Добавление задач (кнопка + Enter)
-- Удаление задач
-- Сохранение в localStorage
+🔗 **[Открыть демо](https://johan-cohan.github.io/first_data/)** ← сюда ссылку из GitHub Pages
 
-## Стек
-- HTML
-- CSS
-- JavaScript (vanilla)
+## Возможности
+
+- ✅ Добавление задач (кнопка или Enter)
+- ✅ Удаление задач одним кликом
+- ✅ Сохранение в localStorage — данные не теряются при перезагрузке
+- ✅ Счётчик задач
+- ✅ Пустое состояние с подсказкой
+
+## Технологии
+
+- HTML5
+- CSS3 (Flexbox, CSS-переменные)
+- JavaScript (vanilla, без фреймворков)
+- localStorage API
+
+## Как запустить локально
+
+1. Склонируй репозиторий:
+   ```bash
+   git clone https://github.com/Johan-cohan/first_data.git
