@@ -1,8 +1,10 @@
 # Todo App
 
+![Скриншот приложения](./todo-app.png)
+
 Простой и удобный список задач на чистом JavaScript.
 
-🔗 **[Открыть демо](https://johan-cohan.github.io/first_data/)** ← сюда ссылку из GitHub Pages
+🔗 **[Открыть демо](https://johan-cohan.github.io/todo-app/)** ← сюда ссылку из GitHub Pages
 
 ## Возможности
 
