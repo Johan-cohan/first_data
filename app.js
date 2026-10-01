@@ -1,6 +1,9 @@
 const taskInput = document.getElementById("taskInput");
 const addButton = document.getElementById("addButton");
 const taskList = document.getElementById("taskList");
+const taskCounter = document.getElementById("taskCounter");
+const emptyMessage = document.getElementById("emptyMessage");
+
 let tasks = [];
 const STORAGE_KEY = "tasks";
 
@@ -8,14 +11,15 @@ function renderTasks() {
   taskList.innerHTML = "";
   if (tasks.length === 0) {
     emptyMessage.style.display = "block";
+    taskCounter.style.display = "none";
   } else {
     emptyMessage.style.display = "none";
+    taskCounter.style.display = "block";
   }
   tasks.forEach((task, index) => {
     const li = document.createElement("li");
     const span = document.createElement("span");
     const deleteButton = document.createElement("button");
-    const emptyMessage = document.getElementById("emptyMessage");
 
     span.textContent = task;
     deleteButton.textContent = "Х";
@@ -28,6 +32,8 @@ function renderTasks() {
     li.appendChild(deleteButton);
     taskList.appendChild(li);
   });
+
+  taskCounter.textContent = `Всего: ${tasks.length}`;
 }
 
 function saveTasks() {
