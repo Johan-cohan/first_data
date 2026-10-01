@@ -28,10 +28,12 @@ body {
 .input-row {
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
 }
 
 .input-row input {
     flex: 1;
+    min-width: 0;
     padding: 10px 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -97,4 +99,9 @@ body {
     text-align: right;
     color: #999;
     font-size: 13px;
+}
+@media (max-width: 445px) {
+    #taskInput, #addButton {
+        width: 100%;
+    }
 }
