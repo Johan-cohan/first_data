@@ -23,4 +23,4 @@
 
 1. Склонируй репозиторий:
    ```bash
-   git clone https://github.com/Johan-cohan/todo-add.git
+   git clone https://github.com/Johan-cohan/todo-app.git
