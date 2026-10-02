@@ -21,7 +21,7 @@ function renderTasks() {
     const span = document.createElement("span");
     const deleteButton = document.createElement("button");
 
-    span.textContent = task;
+    span.textContent = task.text;
     deleteButton.textContent = "Х";
 
     deleteButton.addEventListener("click", () => {
@@ -42,12 +42,17 @@ function saveTasks() {
 
 function loadTasks() {
   const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved === null) return;
 
-  if (saved === null) {
-    return;
-  }
+  const parsed = JSON.parse(saved);
 
-  tasks = JSON.parse(saved);
+  tasks = parsed.map((item) => {
+    if (typeof item === "string") {
+      return { text: item, seconds: 0, running: false };
+    }
+    return item;
+  });
+  saveTasks();
   renderTasks();
 }
 
@@ -55,7 +60,7 @@ function addTask() {
   const text = taskInput.value.trim();
   if (!text) return;
 
-  tasks.push(text);
+  tasks.push({ text, seconds: 0, running: false });
   taskInput.value = "";
   renderTasks();
   saveTasks();
