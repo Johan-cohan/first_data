@@ -20,8 +20,7 @@ function renderTasks() {
     const li = document.createElement("li");
     const span = document.createElement("span");
     const deleteButton = document.createElement("button");
-    const startButton = document.createElement("button");
-    const pauseButton = document.createElement("button");
+    const toggleButton = document.createElement("button");
 
     span.textContent = task.text;
     deleteButton.textContent = "Х";
@@ -30,20 +29,18 @@ function renderTasks() {
       removeTask(index);
     });
 
-    startButton.textContent = "⏵";
-    pauseButton.textContent = "⏸";
+    toggleButton.textContent = task.running ? "⏸" : "⏵";
 
-    startButton.addEventListener("click", () => {
-      startTimer(index);
-    });
+    const timeSpan = document.createElement("span");
+    timeSpan.textContent = formatTime(task.seconds);
 
-    pauseButton.addEventListener("click", () => {
-      pauseTimer(index);
+    toggleButton.addEventListener("click", () => {
+      toggleTimer(index);
     });
 
     li.appendChild(span);
-    li.appendChild(startButton);
-    li.appendChild(pauseButton);
+    li.appendChild(timeSpan);
+    li.appendChild(toggleButton);
     li.appendChild(deleteButton);
     taskList.appendChild(li);
   });
@@ -65,7 +62,7 @@ function loadTasks() {
     if (typeof item === "string") {
       return { text: item, seconds: 0, running: false };
     }
-    return item;
+    return { ...item, running: false };
   });
   saveTasks();
   renderTasks();
@@ -87,14 +84,14 @@ function removeTask(index) {
   saveTasks();
 }
 
-function startTimer(index) {
-  tasks[index].running = true;
-  saveTasks();
-  renderTasks();
+function formatTime(totalSeconds) {
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }
 
-function pauseTimer(index) {
-  tasks[index].running = false;
+function toggleTimer(index) {
+  tasks[index].running = !tasks[index].running;
   saveTasks();
   renderTasks();
 }
@@ -107,4 +104,21 @@ taskInput.addEventListener("keydown", (event) => {
   }
 });
 
+setInterval(() => {
+  let changed = false;
+
+  tasks.forEach((task) => {
+    if (task.running) {
+      task.seconds++;
+      changed = true;
+    }
+  });
+
+  if (changed) {
+    renderTasks();
+  }
+}, 1000);
+window.addEventListener("beforeunload", () => {
+  saveTasks();
+});
 loadTasks();
