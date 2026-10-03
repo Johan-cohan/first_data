@@ -21,6 +21,8 @@ function renderTasks() {
     const span = document.createElement("span");
     const deleteButton = document.createElement("button");
     const toggleButton = document.createElement("button");
+    toggleButton.className = "toggle-btn";
+    deleteButton.className = "delete-btn";
 
     span.textContent = task.text;
     deleteButton.textContent = "Х";

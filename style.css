@@ -66,12 +66,17 @@ body {
 }
 #taskList li {
     display:flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 10px;
     padding: 10px 12px;
     background: #f9f9fb;
     border-radius: 8px;
     font-size: 15px;
+}
+#taskList li span:first-child {
+    flex:1;
+    min-width: 0;
+    word-break: break-word;
 }
 #taskList li button {
     background: transparent;
@@ -85,9 +90,50 @@ body {
     transition: background 0.2s;
 }
 #taskList li button:hover {
-    background: #fee2e2;
+    background: #999;
+}
+#taskList .toggle-btn {
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+#taskList .toggle-btn {
+    background: #4f46e5;
+}
+#taskList .delete-btn {
+    background: transparent;
+    color: #ef4444;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background 0.2s;
+    flex-shrink: 0;
 }
 
+#taskList .delete-btn:hover {
+    background: #fee2e2;
+}
+#taskList .time {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #666;
+    min-width: 50px;
+    text-align: right;
+    flex-shrink: 0;
+}
 .empty-message {
     text-align: center;
     color: #999;
