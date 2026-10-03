@@ -20,6 +20,8 @@ function renderTasks() {
     const li = document.createElement("li");
     const span = document.createElement("span");
     const deleteButton = document.createElement("button");
+    const startButton = document.createElement("button");
+    const pauseButton = document.createElement("button");
 
     span.textContent = task.text;
     deleteButton.textContent = "Х";
@@ -28,7 +30,20 @@ function renderTasks() {
       removeTask(index);
     });
 
+    startButton.textContent = "⏵";
+    pauseButton.textContent = "⏸";
+
+    startButton.addEventListener("click", () => {
+      startTimer(index);
+    });
+
+    pauseButton.addEventListener("click", () => {
+      pauseTimer(index);
+    });
+
     li.appendChild(span);
+    li.appendChild(startButton);
+    li.appendChild(pauseButton);
     li.appendChild(deleteButton);
     taskList.appendChild(li);
   });
@@ -70,6 +85,18 @@ function removeTask(index) {
   tasks.splice(index, 1);
   renderTasks();
   saveTasks();
+}
+
+function startTimer(index) {
+  tasks[index].running = true;
+  saveTasks();
+  renderTasks();
+}
+
+function pauseTimer(index) {
+  tasks[index].running = false;
+  saveTasks();
+  renderTasks();
 }
 
 addButton.addEventListener("click", addTask);
